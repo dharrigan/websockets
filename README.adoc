@@ -1,0 +1,142 @@
+= online.harrigan/websockets README
+:author: david
+:email:
+:docinfo: true
+:doctype: book
+:icons: font
+:numbered:
+:sectlinks:
+:sectnums:
+:setanchors:
+:source-highlighter: highlightjs
+:toc:
+:toclevels: 5
+
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
+== Introduction
+
+An example of using https://github.com/metosin/reitit[Reitit] and
+https://github.com/ptaoussanis/sente[Sente] along with a JavaScript
+https://github.com/dharrigan/websockets-js[client], to provide a
+simple WebSocket client/server implementation.
+
+It's very basic, and apart from a simple CSRF check, there is no other
+authorization/authentication. Consider this a starting point.
+
+== Document Changelog
+
+IMPORTANT: Until any APIs referenced in this or linked documentation
+stabilise and until this or referenced projects reach a 1.0.0 release,
+*please be very careful* to examine the version changes listed below
+as the supporting APIs (request fields, response fields - even the API
+path) can change to reflect a maturing understanding of the
+requirements. *DO NOT ASSUME THAT FIELDS OR RESPONSES ARE FIXED UNTIL
+AT LEAST A 1.0.0 RELEASE*
+
+WARNING: Read the warning above.
+
+|===
+|Version | Note
+
+| *0.1.0*
+a|
+* Initial Release of this Document.
+
+|===
+
+== Terminology
+
+NOTE: The keywords *MUST, MUST NOT, REQUIRED, SHALL, SHALL NOT, SHOULD, SHOULD NOT,
+RECOMMENDED, MAY,* and *OPTIONAL*, when they appear in this document, are to
+be interpreted as described in https://www.ietf.org/rfc/rfc2119.txt[RFC2119]
+
+== Prerequisites
+
+IMPORTANT: Please read carefully!
+
+* Assumes standard https://clojure.org/guides/deps_and_cli[Clojure deps] setup.
+* Copy `resources/config/config-example.edn` to:
+** `resources/config/config-local.edn`
+* Modify the config file to suit your environment, for example:
+** Database connection details (defaults to https://sqlite.org/[sqlite]).
+
+== Usage
+
+IMPORTANT: Ensure you have followed the prerequisites!
+
+There are three ways in which this project can be run
+
+* Via the REPL/Editor.
+* At the command line.
+* As a docker container.
+
+=== REPL/Editor Usage
+
+* Fire up a REPL and connect to it via your favourite editor.
+* Open up `main.clj`.
+* Evaluate the `(do` form within the `(comment` block at the end of the file.
+* This will start up the webserver on port 8080 and initialise the database (if not already initialised).
+
+=== Command Line Usage
+
+* `bin/run-local`
+
+After the application has started...
+
+* Navigate to http://localhost:8080.
+
+=== Docker Container Usage
+
+* `bin/run-docker`
+
+After the container has spun up...
+
+* Navigate to http://localhost:8080.
+
+== Known Issues
+
+* None that I know of! :-)
+
+== Feedback
+
+If errors or omissions are noticed within this document, please
+contact the author so that improvements can be made. Thank you.
+
+== License
+
+Find the full https://unlicense.org/[unlicense] in the `UNLICENSE` (and
+`LICENSE`) file, but here's a snippet:
+
+```
+This is free and unencumbered software released into the public domain.
+
+Anyone is free to copy, modify, publish, use, compile, sell, or
+distribute this software, either in source code form or as a compiled
+binary, for any purpose, commercial or non-commercial, and by any
+means.
+
+In jurisdictions that recognize copyright laws, the author or authors
+of this software dedicate any and all copyright interest in the
+software to the public domain. We make this dedication for the benefit
+of the public at large and to the detriment of our heirs and
+successors. We intend this dedication to be an overt act of
+relinquishment in perpetuity of all present and future rights to this
+software under copyright law.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+OTHER DEALINGS IN THE SOFTWARE.
+
+For more information, please refer to <http://unlicense.org>
+```

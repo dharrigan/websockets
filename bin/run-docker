@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -eo pipefail
+
+bin/build
+bin/imagify
+
+#
+# See the `docker-compose-X.yml` file to define which config file to use.
+#
+docker-compose -f scripts/docker/docker-compose-${1:-local}.yml up --remove-orphans

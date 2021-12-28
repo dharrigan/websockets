@@ -1,0 +1,25 @@
+;;
+;; Configuration
+;;
+{:secrets #include "/home/clojure/secrets-config.edn"
+
+ :runtime-config #include "/home/clojure/runtime-config.edn"
+
+ :components
+ ;; opqaue "$deity" configuration
+ {:app-config {:start {:db (clip/ref :db)
+                       :runtime-config #ref [:runtime-config]
+                       :secrets #ref [:secrets]
+                       :template-engine (clip/ref :thymeleaf)}}
+
+  :db {:start (online.harrigan.components.database.impl/start #ref [:secrets :db])
+       :post-start (online.harrigan.components.database.impl/post-start this ["db/migrations/sqlite"])
+       :stop (online.harrigan.components.database.impl/stop this)}
+
+  :jmxmp {:start (online.harrigan.components.jmxmp.impl/start #ref [:runtime-config :jmxmp])
+          :stop (online.harrigan.components.jmxmp.impl/stop this)}
+
+  :thymeleaf {:start (online.harrigan.components.thymeleaf.impl/start #ref [:runtime-config :thymeleaf])}
+
+  :router {:start (online.harrigan.api.router/start (clip/ref :app-config))
+           :stop (online.harrigan.api.router/stop this)}}}

@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -eo pipefail
+
+bin/build
+
+#
+# Don't forget to rename "config/config-example.edn" to "config/config-local.edn"
+# (or config/config-staging.edn or config/config-production.edn) and then change the values
+# to suit your setup!
+#
+java -cp resources/config:target/app.jar online.harrigan.main --config config-local.edn $@

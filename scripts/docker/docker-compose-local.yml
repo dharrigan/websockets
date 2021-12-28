@@ -1,0 +1,14 @@
+---
+
+services:
+
+  websockets:
+    image: docker.harrigan.online/websockets:latest
+    ports:
+      - "8080:8080"
+      - "15555:5555"
+      - "19010:9010"
+      - "19080:9080"
+    environment:
+      # change `config-local.edn` to suit your environment!
+      RUN_OPTS: "--config config/config-local.edn"

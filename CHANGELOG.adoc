@@ -1,0 +1,26 @@
+= Changelog
+
+All notable changes to this project will be documented in this file
+and is based on https://keepachangelog.com/en/1.0.0/[Keep a Changelog].
+
+This project follows the version scheme MAJOR.MINOR.COMMITS where
+MAJOR and MINOR provide some relative indication of the size of the
+change, but do not follow semantic versioning. In general, all changes
+endeavour to be non-breaking (by moving to new names rather than by
+breaking existing names). COMMITS is an ever-increasing counter of
+commits since the beginning of this repository.
+
+== https://github.com/online.harrigan/websockets[Unreleased]
+
+=== Added
+=== Changed
+=== Deprecated
+=== Removed
+=== Fixed
+=== Security
+
+== https://github.com/online.harrigan/websockets/releases/tag/0.1.0[0.1.0] - 2021-12-28
+
+=== Added
+
+- Initial Release

@@ -1,0 +1,55 @@
+{:paths ["src" "resources"]
+
+ :deps {org.clojure/clojure {:mvn/version "1.10.3"}
+
+        aero/aero {:mvn/version "1.1.6"}
+        camel-snake-kebab/camel-snake-kebab {:mvn/version "0.4.2"}
+        ch.qos.logback/logback-classic {:mvn/version "1.2.10"}
+        cheshire/cheshire {:mvn/version "5.10.1"}
+        clj-http/clj-http {:mvn/version "3.12.3"}
+        com.cognitect/transit-clj {:mvn/version "1.0.324"}
+        com.github.seancorfield/honeysql {:mvn/version "2.2.840"}
+        com.github.seancorfield/next.jdbc {:mvn/version "1.2.761"}
+        com.taoensso/sente {:mvn/version "1.16.2"}
+        com.zaxxer/HikariCP {:mvn/version "5.0.0"}
+        info.sunng/ring-jetty9-adapter {:mvn/version "0.17.0"}
+        juxt/clip {:mvn/version "0.27.0"}
+        metosin/malli {:mvn/version "0.7.5"}
+        metosin/muuntaja {:mvn/version "0.6.8"}
+        metosin/reitit {:mvn/version "0.5.15" :exclusions [metosin/reitit-sieppari]}
+        org.clojure/core.async {:mvn/version "1.5.648"}
+        org.clojure/tools.cli {:mvn/version "1.0.206"}
+        org.clojure/tools.logging {:mvn/version "1.2.3"}
+        org.codehaus.janino/commons-compiler {:mvn/version "3.1.6"}
+        org.codehaus.janino/janino {:mvn/version "3.1.6"}
+        org.flywaydb/flyway-core {:mvn/version "8.3.0"}
+        org.glassfish.external/opendmk_jmxremote_optional_jar {:mvn/version "1.0-b01-ea"}
+        org.slf4j/jcl-over-slf4j {:mvn/version "1.7.32"}
+        org.slf4j/jul-to-slf4j {:mvn/version "1.7.32"}
+        org.slf4j/log4j-over-slf4j {:mvn/version "1.7.32"}
+        org.slf4j/slf4j-api {:mvn/version "1.7.32"}
+        org.thymeleaf/thymeleaf {:mvn/version "3.0.14.RELEASE"}
+        org.xerial/sqlite-jdbc {:mvn/version "3.36.0.3"}
+        ring-cors/ring-cors {:mvn/version "0.1.13"}
+        ring/ring-defaults {:mvn/version "0.3.3"}
+        ring/ring-jetty-adapter {:mvn/version "1.9.4"}}
+
+ :aliases {:build {:deps {io.github.seancorfield/build-clj {:git/tag "v0.6.5"
+                                                            :git/sha "972031a"}}
+                   :ns-default scripts.build}
+
+           :test {:extra-paths ["test"]
+                  :extra-deps {cheshire/cheshire {:mvn/version "5.10.1"}
+                               expectations/clojure-test {:mvn/version "1.2.1"}
+                               lambdaisland/kaocha {:mvn/version "1.60.972"}
+                               lambdaisland/kaocha-cloverage {:mvn/version "1.0.75"}
+                               lambdaisland/kaocha-junit-xml {:mvn/version "0.0.76"}
+                               orchestra/orchestra {:mvn/version "2021.01.01-1"}
+                               org.clojure/test.check {:mvn/version "1.1.1"}}}
+
+           :antq {:replace-deps {org.slf4j/slf4j-nop {:mvn/version "1.7.32"}
+                                 com.github.liquidz/antq {:mvn/version "1.3.1"}}
+                  :main-opts ["-m" "antq.core"
+                              "--skip" "pom"
+                              "--upgrade"
+                              "--force"]}}}
